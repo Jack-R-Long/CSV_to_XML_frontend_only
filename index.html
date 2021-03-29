@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="img/AETC_Shield_Fancy_small.png">
+    <link rel="icon" type="image" href="./img/AETC_Shield_Fancy_small.png">
 
-    <title>AETC Roadshow Demo</title>
+    <title>333d Courseware as Code</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/album/">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
   </head>
 
   <body>
@@ -47,8 +47,8 @@
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-            <img class="icon mr-2" src="img/AETC_Shield_Fancy_small.png" alt="Logo" srcset="">
-            <strong>AETC Roadshow</strong>
+            <img class="icon mr-2" src="./img/AETC_Shield_Fancy_small.png" alt="Logo" srcset="">
+            <strong>Courseware as Code</strong>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,51 +63,30 @@
         <div class="container">
           <!-- Row One -->
           <div class="row align-items-start">
-              <!-- Column One -->
-              <div class="col">
-                  <!-- File Upload Button -->
-                  <div class="container text-center">
-                      <h5 class="text-center">Upload CSV</h5>
-                      <input class="btn btn-info" id="fileUpload" type="file" onchange="uploadCSV(this)"></input>
-                  </div>
-              </div>
-              <!-- Column Two -->
-              <div class="col">
-                  <!-- Convert Button -->
-                  <div class="container text-center">
-                      <h5 class="text-center">Convert to XML</h5>
-                      <button class="btn btn-info" id="btnConvert" onclick="CSVtoXML(tbCSV)">Convert</button>
-                  </div>
-              </div>
+
+            <!-- File Upload Button -->
+            <div class="container text-center">
+                <h5 class="text-center">Upload Course Data</h5>
+                <form enctype="multipart/form-data">
+                  <input class="btn btn-info" id="txtFileUpload" type="file"/>
+                </form>
+                <!-- <input class="btn btn-info" id="fileUpload" type="file" onchange="uploadCSV(this)"></input> -->
+            </div>
+
+            <!-- XML Output -->
+            <div class="container text-center mt-4">
+              <h5>Data</h5>
+              <div id="csv-display"></div>
+            </div>
           </div>
+
           <!-- Row Two -->
-          <div class="row align-items-start">
-            <div class="col">
-              <!-- CSV Upload -->
-              <div class="container text-center mt-4">
-                <h5>CSV Input</h5>
-                <textarea class="form-control" id="tbCSV" rows="10">block_number,task_id,task_description
-                1,1,Identify organizational IA roles and responsibilities
-                1,2,Identify and implement implicit deny ACL rules
-                1,3,Calculate subnet ranges given subnet mask and addresses</textarea>
-              </div>
-            </div>
-            <div class="col">
-              <!-- XML Output -->
-              <div class="container text-center mt-4">
-                <h5>XML Output</h5>
-                <textarea  class="form-control"id="tbXML" rows="10"></textarea>
-              </div>
-            </div>
-          </div>
-          <!-- Row Three -->
-          <div class="row align-items-start">
+          <!-- <div class="row align-items-start">
             <div class="container text-center mt-4">
               <h5>Upload to Database</h5>
               <button class="btn btn-danger" id="btnUpload" onclick="">Upload</button>
             </div>
-          </div>
-        </div>
+          </div> -->
       </section>
 
       <div class="parallax">
@@ -126,14 +105,18 @@
               <!--Grid row-->
               <div class="row">
                 <div class="col-md-6 mb-4 text-center">
-                  <img src="img/AETC_Shield_Fancy_small.png" class="img-fluid" alt="AETC shield">
+                  <img src="./img/AETC_Shield_Fancy_small.png" class="img-fluid" alt="AETC shield">
                 </div>
                 <div class="col-md-6 mb-4">
                   <!-- Authors -->
-                  <h3 class="h3 mb-3">Authors</h3>
+                  <h3 class="h3 mb-1">Authors</h3>
                   <hr>
-                  <h4>Jack Long</h4>
-                  <p> jack.richard.long@gmail.com</p>
+                  <h4 >Jack Long</h4>
+                  <a href="https://github.com/Jack-R-Long">https://github.com/Jack-R-Long</a>
+                  <h4 class="mt-2">Alexander Mundy</h4>
+                  <a href="https://github.com/amundy14">https://github.com/amundy14</a>
+                  <h4 class="mt-2">Neel Kotak</h4>
+                  <a href="https://github.com/neelkotak13">https://github.com/neelkotak13</a>
                   <!-- Authors -->
                 </div>
               </div>
@@ -156,13 +139,17 @@
         </p>
       </div>
     </footer>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Custom JS for tool -->
-    <script src="js/CSVtoXML.js"></script>
-
+    <!-- Jquery CSV-->
+    <script src="./js/jquery.csv.min.js"></script>
+    <!-- Boostrap js -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- Custom js -->
+    <!-- <script src="/js/CSVtoXML.js"></script> -->
+    <!-- <script src="/js/customjQuery.js"></script> -->
+    <script src="./js/newJQuery.js"></script>
+  
   </body>
 </html>
